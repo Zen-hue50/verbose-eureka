@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash Coaching Institute</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --peach: #FFCBA4;
+            --beige: #F5E6D3;
+            --cream: #FFF8F0;
+            --warm-brown: #8B7355;
+            --soft-coral: #FFB4A2;
+            --blush: #E8C4B8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 50%, var(--peach) 100%);
+            min-height: 100vh;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-image-container {
+            background: linear-gradient(145deg, var(--blush), var(--peach));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .floating-decoration {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-decoration-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .social-btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.3);
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 60px rgba(255, 180, 162, 0.4);
+        }
+
+        .decorative-circle {
+            background: linear-gradient(135deg, var(--soft-coral), var(--peach));
+            opacity: 0.3;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .sparkle {
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-brown);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Decorative Background Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="decorative-circle absolute w-96 h-96 rounded-full -top-48 -right-48 floating-decoration"></div>
+        <div class="decorative-circle absolute w-64 h-64 rounded-full top-1/3 -left-32 floating-decoration-delayed"></div>
+        <div class="decorative-circle absolute w-80 h-80 rounded-full -bottom-40 right-1/4 floating-decoration"></div>
+        <div class="decorative-circle absolute w-48 h-48 rounded-full bottom-1/4 -left-24 floating-decoration-delayed"></div>
+        
+        <!-- Sparkles -->
+        <i class="fas fa-sparkles absolute top-20 left-1/4 text-amber-300/50 text-2xl sparkle"></i>
+        <i class="fas fa-star absolute top-40 right-1/3 text-amber-200/40 text-xl sparkle" style="animation-delay: 0.5s;"></i>
+        <i class="fas fa-sparkles absolute bottom-1/3 left-1/3 text-amber-300/50 text-xl sparkle" style="animation-delay: 1s;"></i>
+        <i class="fas fa-star absolute top-1/2 right-1/4 text-amber-200/40 text-2xl sparkle" style="animation-delay: 1.5s;"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-playfair text-2xl font-bold text-amber-900">📚 AKASH ACADEMY</a>
+            <div class="hidden md:flex gap-8">
+                <a href="#home" class="nav-link text-amber-800 hover:text-amber-600 font-medium">Home</a>
+                <a href="#about" class="nav-link text-amber-800 hover:text-amber-600 font-medium">About</a>
+                <a href="#courses" class="nav-link text-amber-800 hover:text-amber-600 font-medium">Courses</a>
+                <a href="#contact" class="nav-link text-amber-800 hover:text-amber-600 font-medium">Contact</a>
+            </div>
+            <button class="md:hidden text-amber-800 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="text-center md:text-left order-2 md:order-1">
+                <p class="text-amber-700 font-medium tracking-widest uppercase mb-4">Where Wisdom Meets Growth</p>
+                <h1 class="font-playfair text-5xl md:text-7xl font-bold text-amber-900 mb-6 leading-tight">
+                    Akash Sir
+                    <span class="block text-3xl md:text-4xl font-normal text-amber-700 mt-2">Educator • Mentor • Philosopher</span>
+                </h1>
+                <p class="text-amber-800/80 text-lg mb-8 max-w-md mx-auto md:mx-0">
+                    "The unexamined life is not worth living." - Socrates<br><br>
+                    Guiding minds through the labyrinth of language and thought, where every word becomes a stepping stone to wisdom.
+                </p>
+                
+                <!-- Social Links -->
+                <div class="flex gap-4 justify-center md:justify-start flex-wrap">
+                    <a href="#" class="social-btn w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl glow-effect">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-btn w-14 h-14 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-xl glow-effect">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-btn w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white text-xl glow-effect">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-btn w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white text-xl glow-effect">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-btn w-14 h-14 rounded-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center text-white text-xl glow-effect">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="flex gap-8 mt-10 justify-center md:justify-start">
+                    <div class="text-center">
+                        <p class="font-playfair text-3xl font-bold text-amber-900">500+</p>
+                        <p class="text-amber-700 text-sm">Students Mentored</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-playfair text-3xl font-bold text-amber-900">5+</p>
+                        <p class="text-amber-700 text-sm">Years Experience</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-playfair text-3xl font-bold text-amber-900">95%</p>
+                        <p class="text-amber-700 text-sm">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="relative">
+                    <!-- Decorative rings -->
+                    <div class="absolute -inset-4 rounded-full border-2 border-amber-300/30 floating-decoration"></div>
+                    <div class="absolute -inset-8 rounded-full border border-amber-200/20 floating-decoration-delayed"></div>
+                    
+                    <!-- Main Image Container -->
+                    <div class="hero-image-container w-72 h-72 md:w-96 md:h-96 rounded-full glow-effect flex items-center justify-center relative z-10">
+                        <!-- Placeholder for image - replace src with your image -->
+                        <img src="IMG_20251230_154026485 (1).jpg" alt="Profile Photo" class="w-full h-full object-cover rounded-full" id="hero-image" style="display: none;">
+                        
+                        <!-- Placeholder when no image -->
+                        <div id="image-placeholder" class="flex flex-col items-center justify-center text-amber-800/60">
+                            <i class="fas fa-user-graduate text-5xl mb-3"></i>
+                            <p class="text-sm font-medium">Akash Sir</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating decorative elements around image -->
+                    <div class="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-amber-300 to-amber-400 rounded-full floating-decoration flex items-center justify-center">
+                        <i class="fas fa-book text-white"></i>
+                    </div>
+                    <div class="absolute -bottom-2 -left-6 w-10 h-10 bg-gradient-to-br from-pink-300 to-pink-400 rounded-full floating-decoration-delayed flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-white text-sm"></i>
+                    </div>
+                    <div class="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-br from-purple-300 to-purple-400 rounded-full floating-decoration flex items-center justify-center">
+                        <i class="fas fa-feather text-white text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <i class="fas fa-chevron-down text-amber-700 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <h2 class="font-playfair text-4xl font-bold text-amber-900 text-center mb-8">
+                    📖 About My Philosophy 📖
+                </h2>
+                <p class="text-amber-800/80 text-center text-lg leading-relaxed mb-8">
+                    "Language is the road map of a culture. It tells you where its people come from and where they are going." - Rita Mae Brown<br><br>
+                    Welcome to a space where English transcends mere grammar and vocabulary. Here, we explore the profound depths of human expression, 
+                    where words become bridges between souls and thoughts take flight through the power of communication.
+                </p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <span class="px-5 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">📚 English Expert</span>
+                    <span class="px-5 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">🎓 Mentor</span>
+                    <span class="px-5 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">💭 Philosophical</span>
+                    <span class="px-5 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">🌟 Transformative</span>
+                </div>
+                <div class="mt-8 text-center">
+                    <p class="text-amber-800/80 italic text-lg">
+                        "The capacity to think critically and express ideas eloquently is the greatest gift we can give our students."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-playfair text-4xl font-bold text-amber-900 text-center mb-12">
+                🎯 Our Literary Journeys
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <i class="fas fa-pen-nib text-4xl text-amber-600 mb-4"></i>
+                    <h3 class="font-playfair text-2xl font-bold text-amber-900 mb-3">Creative Writing</h3>
+                    <p class="text-amber-800/80 mb-4">
+                        "Write what should not be forgotten." - Isabel Allende<br>
+                        Unleash your inner storyteller and craft narratives that resonate with the human experience.
+                    </p>
+                    <div class="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium inline-block">
+                        Advanced Level
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <i class="fas fa-comments text-4xl text-amber-600 mb-4"></i>
+                    <h3 class="font-playfair text-2xl font-bold text-amber-900 mb-3">Communication Skills</h3>
+                    <p class="text-amber-800/80 mb-4">
+                        "The single biggest problem in communication is the illusion that it has taken place." - George Bernard Shaw<br>
+                        Master the art of expression and connect authentically with others.
+                    </p>
+                    <div class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-medium inline-block">
+                        Foundation Level
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <i class="fas fa-globe text-4xl text-amber-600 mb-4"></i>
+                    <h3 class="font-playfair text-2xl font-bold text-amber-900 mb-3">Literature Analysis</h3>
+                    <p class="text-amber-800/80 mb-4">
+                        "A reader lives a thousand lives before he dies. The man who never reads lives only one." - George R.R. Martin<br>
+                        Delve deep into the world of literature and discover timeless truths.
+                    </p>
+                    <div class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium inline-block">
+                        Intermediate Level
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-20 px-6 bg-amber-50/30">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <h2 class="font-playfair text-3xl font-bold text-amber-900 mb-6">
+                    💭 Philosophical Reflection
+                </h2>
+                <blockquote class="font-playfair text-2xl italic text-amber-800/90 mb-6 leading-relaxed">
+                    "In every student, there lies an ocean of potential waiting for the right wave of guidance to bring it to shore. 
+                    Education is not the filling of a vessel, but the kindling of a flame."
+                </blockquote>
+                <cite class="text-amber-700 font-medium">- Akash Sir</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <h2 class="font-playfair text-4xl font-bold text-amber-900 mb-4">
+                    📝 Join Our Learning Community
+                </h2>
+                <p class="text-amber-800/80 mb-8">
+                    "Education is the passport to the future, for tomorrow belongs to those who prepare for it today." - Malcolm X<br><br>
+                    Subscribe for literary insights, study tips, and philosophical musings delivered directly to your inbox.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        class="flex-1 px-6 py-4 rounded-full border-2 border-amber-200 bg-white/50 focus:outline-none focus:border-amber-400 text-amber-900 placeholder-amber-400"
+                    >
+                    <button type="submit" class="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full font-semibold hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl">
+                        Enroll Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 border-t border-amber-200/50">
+        <div class="max-w-6xl mx-auto text-center">
+            <!-- Social Links Again -->
+            <div class="flex gap-6 justify-center mb-6">
+                <a href="#" class="text-amber-700 hover:text-amber-500 text-2xl transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-amber-700 hover:text-amber-500 text-2xl transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-amber-700 hover:text-amber-500 text-2xl transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="text-amber-700 hover:text-amber-500 text-2xl transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-amber-700 hover:text-amber-500 text-2xl transition-colors">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="text-amber-700 hover:text-amber-500 text-2xl transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="text-amber-700/60 text-sm">
+                © 2026 Akash Academy. Nurturing minds with wisdom and purpose. Made with 💖
+            </p>
+            <p class="text-amber-700/50 text-xs mt-2">
+                "Knowledge is not wisdom. Knowledge is information. Wisdom is the application of information." - William Pollard
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Image handling - show image when src is added
+        const heroImage = document.getElementById('hero-image');
+        const placeholder = document.getElementById('image-placeholder');
+        
+        // Check if image has valid source
+        function checkImage() {
+            if (heroImage.src && heroImage.src !== window.location.href) {
+                heroImage.style.display = 'block';
+                placeholder.style.display = 'none';
+            }
+        }
+        
+        heroImage.onload = function() {
+            heroImage.style.display = 'block';
+            placeholder.style.display = 'none';
+        };
+        
+        heroImage.onerror = function() {
+            heroImage.style.display = 'none';
+            placeholder.style.display = 'flex';
+        };
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const decorations = document.querySelectorAll('.decorative-circle');
+            decorations.forEach((dec, i) => {
+                const speed = 0.1 + (i * 0.05);
+                dec.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // Make first section visible immediately
+        document.getElementById('home').style.opacity = '1';
+        document.getElementById('home').style.transform = 'translateY(0)';
+    </script>
+</body>
+</html>
